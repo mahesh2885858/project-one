@@ -1,5 +1,6 @@
 import React from "react";
 import "./sidebar.css";
+import CloseFriends from '../closeFriends/CloseFriends'
 import {
   RssFeed,
   Chat,
@@ -11,6 +12,7 @@ import {
   Event,
   School,
 } from "@mui/icons-material";
+import {Users} from '../../dummyData'
 
 function Sidebar() {
   return (
@@ -57,49 +59,15 @@ function Sidebar() {
         <button className="sidebarButton">Show More</button>
         <hr className="sidebarHr" />
         <ul className="sidebarFriendList">
-          <li className="sidebarFriend">
-            <img
-              src="/assets/person/2.jpeg"
-              alt=""
-              className="sidebarFriendImg"
-            />
-            <span className="sidebarFriendName">Mahesh</span>
-          </li>
-          <li className="sidebarFriend">
-            <img
-              src="/assets/person/2.jpeg"
-              alt=""
-              className="sidebarFriendImg"
-            />
-            <span className="sidebarFriendName">Mahesh</span>
-          </li>
-          <li className="sidebarFriend">
-            <img
-              src="/assets/person/2.jpeg"
-              alt=""
-              className="sidebarFriendImg"
-            />
-            <span className="sidebarFriendName">Mahesh</span>
-          </li>
-          <li className="sidebarFriend">
-            <img
-              src="/assets/person/2.jpeg"
-              alt=""
-              className="sidebarFriendImg"
-            />
-            <span className="sidebarFriendName">Mahesh</span>
-          </li>
-          <li className="sidebarFriend">
-            <img
-              src="/assets/person/2.jpeg"
-              alt=""
-              className="sidebarFriendImg"
-            />
-            <span className="sidebarFriendName">Mahesh</span>
-          </li>
+       {Users.map((u)=>(
+           <CloseFriends key={u.id} user={u}/>
+       ))}
+         
         </ul>
+        </div>
+       
       </div>
-    </div>
+    
   );
 }
 
