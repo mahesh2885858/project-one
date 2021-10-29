@@ -4,7 +4,7 @@ import { Users } from '../../dummyData'
 import Online from "../online/Online";
 
 
-function Rightbar() {
+function Rightbar(props) {
   const HomeRightbar = () => {
     return (
       <>
@@ -76,7 +76,8 @@ function Rightbar() {
   return (
     <div className="rightbar">
       <div className="rightbarWrapper">
-        <ProfileRightbar />
+
+        {props.profile ? <ProfileRightbar /> : <HomeRightbar />}
       </div>
     </div>
   );
