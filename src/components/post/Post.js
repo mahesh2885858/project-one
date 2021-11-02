@@ -1,16 +1,17 @@
 import { MoreVert } from "@mui/icons-material";
 import React from "react";
 import "./post.css";
-import {Users} from '../../dummyData'
-import {useState} from 'react'
+import { Users } from '../../dummyData'
+import { useState } from 'react'
 
 function Post(props) {
-const[like,setLike]=useState(props.post.like)
-const[isLiked,setIsLiked]=useState(false)
-const likeHandler = ()=>{
-  setLike(isLiked?like-1:like+1)
-  setIsLiked(!isLiked)
-}
+  const [like, setLike] = useState(props.post.like)
+  const [isLiked, setIsLiked] = useState(false)
+  const PF = process.env.REACT_APP_PUBLIC_FOLDER
+  const likeHandler = () => {
+    setLike(isLiked ? like - 1 : like + 1)
+    setIsLiked(!isLiked)
+  }
 
   return (
     <div className="post">
@@ -18,12 +19,12 @@ const likeHandler = ()=>{
         <div className="postTop">
           <div className="postTopLeft">
             <img
-              src={Users.filter(u=>u.id===props.post.userId)[0].profilePicture}
+              src={Users.filter(u => u.id === props.post.userId)[0].profilePicture}
               className="postProfileImg"
               alt=""
             />
-            
-            <span className="postUsername">{Users.filter(u=>u.id===props.post.userId)[0].username}</span>
+
+            <span className="postUsername">{Users.filter(u => u.id === props.post.userId)[0].username}</span>
             <span className="postDate">{props.post.date}</span>
           </div>
           <div className="postTopRight">
@@ -32,7 +33,7 @@ const likeHandler = ()=>{
         </div>
         <div className="postCenter">
           <span className="postText">{props.post?.desc}</span>
-          <img src={props.post.photo} alt="" className="postImg" />
+          <img src={PF + props.post.photo} alt="" className="postImg" />
         </div>
         <div className="postBottom">
           <div className="postBottomLeft">
